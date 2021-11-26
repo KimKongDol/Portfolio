@@ -1,0 +1,126 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row tm-welcome-row">
+  <div class="col-12 tm-page-cols-container">
+    <div class="tm-page-col-left tm-welcome-box tm-bg-gradient">
+      <p class="tm-welcome-text">
+        <em>"Gradient CSS BG #A0C0C0 to #669999 and right side is a
+          parallax image of our group."</em>
+      </p>
+    </div>
+    <div class="tm-page-col-right">
+      <div class="tm-welcome-parallax" data-parallax="scroll" data-image-src="{%static 'img/contact-us.jpg' %}"></div>
+    </div>
+  </div>
+</div>
+
+<section class="row tm-pt-4 tm-mb-3">
+  <div class="col-12 tm-page-cols-container">
+    <div class="tm-page-col-left">
+      <div class="tm-contact-container tm-mb-6">
+        <div class="tm-address-container">
+          <h2 class="tm-text-secondary tm-mb-6">Address</h2>
+          <address>
+            <p>
+              110-330 Sed ultricies purus nec<br />
+              Suscipit vulputate<br />
+              Fusce a massa 10550
+            </p>
+          </address>
+        </div>
+
+        <div class="tm-location-container">
+          <h2 class="tm-text-secondary tm-mb-4">Location</h2>
+          <a href="#"><img src="{%static 'img/map.png' %}" alt="Map image" class="img-fluid" /></a>
+        </div>
+      </div>
+    </div>
+    <div class="tm-page-col-right tm-form-container">
+      <h2 class="tm-text-secondary mb-4">Contact Us</h2>
+      <form action="contact.html" method="POST" id="tm_contact_form" enctype="multipart/form-data">
+        <div class="form-group">
+          <input type="text" id="contact_name" name="contact_name"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0" placeholder="Your Name"
+            required="" />
+        </div>
+        <div class="form-group-2">
+          <input type="email" id="contact_email" name="contact_email"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0" placeholder="Your Email"
+            required="" />
+        </div>
+        <div class="form-group-2 input-field">
+          <select class="tm-select" name="occupation" id="occupation">
+            <option value="select">Your Occupation</option>
+            <option value="CE">Chief Executive</option>
+            <option value="SA">Software Architect</option>
+            <option value="PM">Project Manager</option>
+            <option value="WD">Web Developer</option>
+          </select>
+        </div>
+        <div class="form-group tm-choices-container tm-text-secondary">
+          <label class="tm-w-50">
+            <input type="radio" class="with-gap" name="gender" value="male" />
+            <span>Male</span>
+          </label>
+
+          <label class="tm-w-50">
+            <input type="radio" class="with-gap" name="gender" value="female" />
+            <span>Female</span>
+          </label>
+        </div>
+
+        <div class="tm-mb-5">
+          <textarea rows="10" id="contact_message" name="contact_message" class="form-control rounded-0"
+            placeholder="Your Message" required=""></textarea>
+        </div>
+
+        <div class="tm-mb-4 tm-choices-container tm-text-secondary">
+          <label class="tm-w-50">
+            <input type="checkbox" name="ckb[]" class="filled-in" value="1" />
+            <span>Check Box 1</span>
+          </label>
+          <label class="tm-w-50">
+            <input type="checkbox" name="ckb[]" class="filled-in" value="2" />
+            <span>Check Box 2</span>
+          </label>
+        </div>
+        <div class="tm-mb-6 file-upload-container">
+          <input id="file_name_label" type="text" class="border-top-0 border-right-0 border-left-0"
+            placeholder="Your file to upload" disabled />
+          <label class="btn btn-outline btn-file">
+            Browse...
+            <input type="file" name="file_to_upload" style="display: none;" />
+          </label>
+        </div>
+
+        <div class="">
+          <button type="submit" class="btn btn-secondary tm-btn-submit rounded-0">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  $(document).on("change", ":file", function () {
+    var input = $(this),
+      numFiles = input.get(0).files ? input.get(0).files.length : 1,
+      label = input
+        .val()
+        .replace(/\\/g, "/")
+        .replace(/.*\//, "");
+    input.trigger("fileselect", [numFiles, label]);
+  });
+
+  $(document).ready(function () {
+    $(":file").on("fileselect", function (event, numFiles, label) {
+      $("#file_name_label").attr("placeholder", label);
+    });
+  });
+</script>
+{% endblock %}

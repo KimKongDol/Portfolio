@@ -1,0 +1,258 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 -->
+{% include './music_shared/picpart.html' %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 끝 -->
+
+<section class="row tm-pt-4 tm-pb-6">
+  <div class="col-12 tm-tabs-container tm-page-cols-container">
+    <!-- 음약 메뉴 파트들 -->
+    {% include './music_shared/menu.html' %}
+    <!-- 음약 메뉴 파트들 -->
+
+    <div class="tm-page-col-right tm-tab-contents">
+      <div id="first-tab-group" class="tabgroup">
+        <div id="tab1">
+          <div class="text-content">
+            <h3 class="tm-text-secondary tm-mb-5">
+              어떤 음악은 시같다는 생각을 해 •••
+            </h3>
+            <div class="tm-mb-8">
+              소설가가 가사를 쓴다고 해도 참 잘쓸 것 같은데. 소설가와 작사가라는 직업이 통일되지 않는 이유가 뭘까...
+              <i class="far fa-comment"></i>
+            </div>
+            <!-- <p class="tm-mb-5">
+              {{all_songs}}
+            </p> -->
+          </div>
+          <div class="row tm-pt-5">
+            <!-- 음악 반복적으로 써줄거야 -->
+            {% for Song in all_songs %}
+            <div class="col-md-4 text-center" style="border: dotted 1px #a0c0c0; padding: 2%;">
+              <div class="tm-about-person mx-auto">
+                <div class="genre-icon">
+                  {% if Song.genre == '힙합' or Song.genre == '국내 힙합' %}
+                  <i class="fas fa-comments-dollar fa-2x"></i>
+                  {% elif Song.genre == '발라드' %}
+                  <i class="fas fa-mug-hot fa-2x"></i>
+                  {% elif Song.genre == '팝' %}
+                  <i class="fas fa-plane fa-2x"></i>
+                  {% else %}
+                  <i class="far fa-question-circle fa-2x"></i>
+                  {% endif %}
+                </div>
+                <br>
+                <!-- <img src="img/bitcoin-girl.jpg" alt="Image" class="img-fluid tm-mb-1" /> -->
+                <h4 class="tm-text-secondary tm-mb-1">
+                  {{Song.title}}
+                </h4>
+                <p class="tm-mb-2">{{Song.singer}}</p>
+
+                <p>
+                  {{Song.summary}}
+                </p>
+                <a id="show-detail" href="{% url 'index:detail' Song.id %}">...자세히</a>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- <div id="tab2">
+          <div class="text-content">
+            <h3 class="tm-text-secondary tm-mb-5">Vision and Mission</h3>
+            <p class="tm-mb-5">
+              Nam consequat, leo vitae aliquet dignissim, leo est laoreet
+              nibh, nec dictum libero justo vitae dolor. Donec tristique
+              eros at nisi elementum efficitur. Proin ornare feugiat ex
+              placerat pellenteqsue. Nulla convallis est volutpat ex
+              ultrices facilisis.
+            </p>
+            <p class="tm-mb-5">
+              Etiam egestas metus vitae est interdum, in eleifend nunc
+              volutpat. Aliquam molestie ipsum quis suscipit lacinia.
+              Mauris turpis libero, iaculis non dictum ac, ornare a massa.
+              Duis id lorem purus. Fusce viverra ullamcorper metus.
+              Curabitur puvinar suscipit sapien ac blandit. Aliquam vel
+              pulvinar purus, sit amet luctus urna.
+            </p>
+          </div>
+          <div class="row tm-pt-5">
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/bitcoin-girl.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">
+                  Catherine Theta
+                </h4>
+                <p class="tm-mb-2">Project Manager</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+
+                <p>
+                  Mauris efficitur risus mi, et varius dolor sodales
+                  facilisis. Fusce sed mi tristique.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/ar-guy.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">New Hudson</h4>
+                <p class="tm-mb-2">Digital Marketing</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+                <p>
+                  Pellentesque habitant morbi tristique senectus et netus
+                  et malesuada fames.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/desk-girl.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">Jennifer Wall</h4>
+                <p class="tm-mb-2">Team Leader</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+                <p>
+                  Three social icons are placed in above circles. Sed
+                  turpis nisl, congue a arcu in.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div id="tab3">
+          <div class="text-content">
+            <h3 class="tm-text-secondary tm-mb-5">Our History</h3>
+            <p class="tm-mb-5">
+              Mauris turpis libero, iaculis non dictum ac, ornare a massa.
+              Duis id lorem purus. Fusce viverra ullamcorper metus.
+              Curabitur puvinar suscipit sapien ac blandit. Aliquam vel
+              pulvinar purus, sit amet luctus urna. Nulla convallis est
+              volutpat ex ultrices facilisis.
+            </p>
+            <p class="tm-mb-5">
+              Etiam egestas metus vitae est interdum, in eleifend nunc
+              volutpat. Aliquam molestie ipsum quis suscipit lacinia. Nam
+              consequat, leo vitae aliquet dignissim, leo est laoreet
+              nibh, nec dictum libero justo vitae dolor. Donec tristique
+              eros at nisi elementum efficitur. Proin ornare feugiat ex
+              placerat pellenteqsue.
+            </p>
+          </div>
+          <div class="row tm-pt-5">
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/bitcoin-girl.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">
+                  Catherine Theta
+                </h4>
+                <p class="tm-mb-2">Project Manager</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+
+                <p>
+                  Mauris efficitur risus mi, et varius dolor sodales
+                  facilisis. Fusce sed mi tristique.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/ar-guy.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">New Hudson</h4>
+                <p class="tm-mb-2">Digital Marketing</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+                <p>
+                  Pellentesque habitant morbi tristique senectus et netus
+                  et malesuada fames.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/desk-girl.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">Jennifer Wall</h4>
+                <p class="tm-mb-2">Team Leader</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+                <p>
+                  Three social icons are placed in above circles. Sed
+                  turpis nisl, congue a arcu in.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include './music_shared/script.html' %}
+
+{% endblock %}
