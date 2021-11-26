@@ -1,18 +1,14 @@
-{% extends "main/base.html" %}
-
+{% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 <!-- 페이지 설명과ㅏ 사진있는 파트 -->
 {% include './music_shared/picpart.html' %}
 <!-- 페이지 설명과ㅏ 사진있는 파트 끝 -->
-
 <section class="row tm-pt-4 tm-pb-6">
   <div class="col-12 tm-tabs-container tm-page-cols-container">
     <!-- 음약 메뉴 파트들 -->
     {% include './music_shared/menu.html' %}
     <!-- 음약 메뉴 파트들 -->
-
     <div class="tm-page-col-right tm-tab-contents">
       <div id="first-tab-group" class="tabgroup">
         <div id="tab1">
@@ -54,7 +50,7 @@
                 <p>
                   {{Song.summary}}
                 </p>
-                <a id="show-detail" href="{% url 'index:detail' Song.id %}">...자세히</a>
+                <a id="show-detail" href="{% url 'music:detail' Song.id %}">...자세히</a>
               </div>
             </div>
             {% endfor %}

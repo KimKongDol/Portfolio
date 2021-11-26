@@ -1,5 +1,4 @@
-{% extends "main/base.html" %}
-
+{% extends "./base.html" %}
 {% load static %}
 
 {% block content %}
@@ -7,7 +6,6 @@
 <!-- 페이지 설명과ㅏ 사진있는 파트 -->
 {% include './music_shared/picpart.html' %}
 <!-- 페이지 설명과ㅏ 사진있는 파트 끝 -->
-
 <link rel="stylesheet" href="{%static 'css/music_new.css' %}" />
 <section class="row tm-pt-4 tm-pb-6">
     <div class="col-12 tm-tabs-container tm-page-cols-container">
@@ -22,7 +20,7 @@
                         <h3 class="tm-text-secondary tm-mb-5" style="border-bottom: solid 5px #a0c0c0;">
                             새로운 가사 등록하기
                         </h3>
-                        <form action="{% url 'create' %}" method="post">
+                        <form action="{% url 'music:create' %}" method="post">
                             {% csrf_token %}
                             <p class="tm-mb-7">
                                 <i class="fas fa-stream"></i>

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'index',
+    'music',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +128,8 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'Blog', 'static')  # 현재 static파일들이 어디어있는지
+    # os.path.join(BASE_DIR, 'Blog', 'static')  # 현재 static파일들이 어디어있는지
+    os.path.join(BASE_DIR, 'Blog', 'static')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
