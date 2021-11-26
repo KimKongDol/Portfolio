@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 -->
+{% include './error_shared/picpart.html' %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 끝 -->
+<section class="row tm-pt-4 tm-pb-6">
+  <div class="col-12 tm-tabs-container tm-page-cols-container">
+    <!-- 음약 메뉴 파트들 -->
+    {% include './error_shared/menu.html' %}
+    <!-- 음약 메뉴 파트들 -->
+    <div class="tm-page-col-right tm-tab-contents">
+      <div id="first-tab-group" class="tabgroup">
+        <div id="tab1">
+          <div class="text-content">
+            <h3 class="tm-text-secondary tm-mb-5" style="margin-bottom: 10px !important; ">
+              에러 리스트
+            </h3>
+            <div class="tm-mb-8" style="margin-bottom: 45px; border-bottom: solid 5px #a0c0c0; ">
+              "에러가 있음에 내가 발전할 수 있고 그 에러 목록 수정으로 보람을 느끼니까 고마워하자!"
+              <!-- <i class="far fa-heart"></i>
+              <i class="fas fa-fire-alt"></i> -->
+            </div>
+            <!-- <p class="tm-mb-5">
+              {{all_songs}}
+            </p> -->
+          </div>
+          {% for ErrorReport in all_errors %}
+          <div class="row tm-pt-5"
+            style="border-bottom: solid 3px #a0c0c0; padding: 3% 1% 3% 1% ;display: flex;align-items: center;">
+            <i class="far fa-hand-paper fa-2x" style="padding-right: 1%;"></i>
+            <span>&nbsp; {{ErrorReport.title}}</spam>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- <div id="tab2">
+          <div class="text-content">
+            <h3 class="tm-text-secondary tm-mb-5">Vision and Mission</h3>
+            <p class="tm-mb-5">
+              Nam consequat, leo vitae aliquet dignissim, leo est laoreet
+              nibh, nec dictum libero justo vitae dolor. Donec tristique
+              eros at nisi elementum efficitur. Proin ornare feugiat ex
+              placerat pellenteqsue. Nulla convallis est volutpat ex
+              ultrices facilisis.
+            </p>
+            <p class="tm-mb-5">
+              Etiam egestas metus vitae est interdum, in eleifend nunc
+              volutpat. Aliquam molestie ipsum quis suscipit lacinia.
+              Mauris turpis libero, iaculis non dictum ac, ornare a massa.
+              Duis id lorem purus. Fusce viverra ullamcorper metus.
+              Curabitur puvinar suscipit sapien ac blandit. Aliquam vel
+              pulvinar purus, sit amet luctus urna.
+            </p>
+          </div>
+          <div class="row tm-pt-5">
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/bitcoin-girl.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">
+                  Catherine Theta
+                </h4>
+                <p class="tm-mb-2">Project Manager</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+
+                <p>
+                  Mauris efficitur risus mi, et varius dolor sodales
+                  facilisis. Fusce sed mi tristique.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/ar-guy.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">New Hudson</h4>
+                <p class="tm-mb-2">Digital Marketing</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+                <p>
+                  Pellentesque habitant morbi tristique senectus et netus
+                  et malesuada fames.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/desk-girl.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">Jennifer Wall</h4>
+                <p class="tm-mb-2">Team Leader</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+                <p>
+                  Three social icons are placed in above circles. Sed
+                  turpis nisl, congue a arcu in.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div id="tab3">
+          <div class="text-content">
+            <h3 class="tm-text-secondary tm-mb-5">Our History</h3>
+            <p class="tm-mb-5">
+              Mauris turpis libero, iaculis non dictum ac, ornare a massa.
+              Duis id lorem purus. Fusce viverra ullamcorper metus.
+              Curabitur puvinar suscipit sapien ac blandit. Aliquam vel
+              pulvinar purus, sit amet luctus urna. Nulla convallis est
+              volutpat ex ultrices facilisis.
+            </p>
+            <p class="tm-mb-5">
+              Etiam egestas metus vitae est interdum, in eleifend nunc
+              volutpat. Aliquam molestie ipsum quis suscipit lacinia. Nam
+              consequat, leo vitae aliquet dignissim, leo est laoreet
+              nibh, nec dictum libero justo vitae dolor. Donec tristique
+              eros at nisi elementum efficitur. Proin ornare feugiat ex
+              placerat pellenteqsue.
+            </p>
+          </div>
+          <div class="row tm-pt-5">
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/bitcoin-girl.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">
+                  Catherine Theta
+                </h4>
+                <p class="tm-mb-2">Project Manager</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+
+                <p>
+                  Mauris efficitur risus mi, et varius dolor sodales
+                  facilisis. Fusce sed mi tristique.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/ar-guy.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">New Hudson</h4>
+                <p class="tm-mb-2">Digital Marketing</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+                <p>
+                  Pellentesque habitant morbi tristique senectus et netus
+                  et malesuada fames.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <div class="tm-about-person mx-auto">
+                <img src="img/desk-girl.jpg" alt="Image" class="img-fluid tm-mb-1" />
+                <h4 class="tm-text-secondary tm-mb-1">Jennifer Wall</h4>
+                <p class="tm-mb-2">Team Leader</p>
+                <div class="tm-mb-3">
+                  <a href="https://facebook.com" class="tm-about-social-link">
+                    <i class="fab fa-facebook-f tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com" class="tm-about-social-link">
+                    <i class="fab fa-twitter tm-about-social-icon"></i>
+                  </a>
+                  <a href="https://linkedin.com" class="tm-about-social-link">
+                    <i class="fab fa-linkedin-in tm-about-social-icon"></i>
+                  </a>
+                </div>
+                <p>
+                  Three social icons are placed in above circles. Sed
+                  turpis nisl, congue a arcu in.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include './error_shared/script.html' %}
+
+{% endblock %}

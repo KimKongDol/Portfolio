@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('index.urls')),
     path('', include('music.urls')),
+    path('', include('error_report.urls')),
 ]
