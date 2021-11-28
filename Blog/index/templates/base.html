@@ -45,6 +45,10 @@ https://templatemo.com/tm-532-next-level
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav ml-auto mr-0">
+                                <div class="tm-nav-link-highlight"></div>
+                                <a class="nav-link" href="{% url 'index:index' %}">Home <span
+                                        class="sr-only">(current)</span></a>
+                                </li>
                                 <li class="nav-item">
                                     <div class="tm-nav-link-highlight"></div>
                                     <a class="nav-link" href="{% url 'music:music_index'%}">LYRICS</a>
@@ -69,6 +73,118 @@ https://templatemo.com/tm-532-next-level
         </div>
         {% block content %}
         {% endblock %}
+        <!-- <div class="row tm-welcome-row">
+            <div class="col-12 tm-page-cols-container">
+                <div class="tm-page-col-left tm-welcome-box tm-bg-primary">
+                    <p class="tm-welcome-text">
+                        <em>안녕, 나는 콩돌이야.<br />본명은 아니고 콩돌만큼 작아서 콩돌이야. 근데 내 본명에도 돌맹이가 있긴 해.</em>
+                    </p>
+                </div>
+                <div class="tm-page-col-right">
+                    <div class="tm-welcome-parallax" data-parallax="scroll"
+                        data-image-src="{%static 'img/stones.jpg' %}"></div>
+                </div>
+            </div>
+    </div> -->
+
+        <!-- <section class="row tm-pt-4 tm-pb-6">
+            <div class="col-12 tm-page-cols-container">
+                <div class="tm-page-col-right">
+                    <h2 class="tm-text-secondary tm-mb-5">
+                        『윤희에게』&nbsp 中
+                    </h2>
+                    <p class="tm-mb-6">
+                        "쥰에게, 잘 지내니?
+                        네 편지를 받자마자 너한테 답장을 쓰는거야. 나는 너처럼 글재주가 좋지 않아서 걱정이지만. 나는 네 편지가 부담스럽지 않았어. 나 역시 가끔 네 생각이 났고, 네 소식이
+                        궁금했어. 너와 만났던
+                        시절에 나는 진정한 행복을 느꼈어. 그렇게 충만했던 시절은 또 오지 못할거야. 편지에 너희 집 주소가 적혀있긴 하지만 너한테 이 편지를 부칠 수 있을지는 모르겠다. 나한테
+                        그런 용기가 있다면
+                        얼마나 좋을까. 용기를 내고싶어. 나도 용기를 낼 수 있을거야.
+                        <br><strong>추신, 나도 네 꿈을 꿔.</strong>"
+
+                    </p>
+                    <p class="mb-0">
+                        내가 좋아하는 영화대사야. 너도 좋아하기를 바라.
+                    </p>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- <div class="tm-page-col-right">
+            <div class="row tm-pt-7 tm-pb-6">
+                <div class="col-md-6 tm-home-section-2-left">
+                    <div class="img-fluid tm-mb-4 tm-small-parallax" data-parallax="scroll"
+                        data-image-src="img/image-1.jpg">
+                    </div>
+                    <div>
+                        <h3 class="tm-text-secondary tm-mb-4">
+                            Quisque at rutrum felis
+                        </h3>
+                        <p class="tm-mb-5">
+                            Photo by CoWomen from Pexels. Morbi sollicitudin nibh eu
+                            dignissim mollis. Etiam turpis tortor, ultricies sit amet
+                            placerat suscipit, auctor eu diam.
+                        </p>
+                        <ul class="tm-list-plus">
+                            <li>Vestibulum finibus consectetur nulla</li>
+                            <li>Eget imperdiet eros interdum sit amet</li>
+                            <li>Sed a lacinia lorem, sed luctus enim</li>
+                            <li>2 small images has a parallax effect</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 tm-home-section-2-right">
+                    <div class="img-fluid tm-mb-4 tm-small-parallax" data-parallax="scroll"
+                        data-image-src="img/image-2.jpg">
+                    </div>
+                    <div>
+                        <h3 class="tm-text-secondary tm-mb-4">
+                            Sed ultricies tortor vitae
+                        </h3>
+                        <p class="tm-section-2-text">
+                            Photo by <strong>CoWomen</strong> from <strong>Pexels</strong>. Quisque tortor justo,
+                            pharetra in
+                            eros sed, accumsan dapibus dolor. In luctus sed ante a
+                            tristique.
+                        </p>
+                        <p>
+                            You cannot re-distribute our template on your website for download. Ut ornare pulvinar lorem
+                            a elementum.
+                            Cras sollicitudin ante velit, eget facilisis sem viverra nex. Etiam quis mattis urna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- row -->
+
+        <!-- Call to Action -->
+        <!-- <section class="row" id="tmCallToAction">
+            <div class="col-12 tm-page-cols-container tm-call-to-action-col">
+                <div class="tm-page-col-right">
+                    <div class="tm-call-to-action-box">
+                        <i class="fas fa-3x fa-rss-square tm-call-to-action-icon"></i>
+                        <div class="tm-call-to-action-text">
+                            <h3 class="tm-call-to-action-title">
+                                Vivamus sollicitudin tellus
+                            </h3>
+                            <p class="tm-call-to-action-description">
+                                Maecenas maximus tellus in dolor auctor tristique. Nam
+                                hendrerit posuere laoreet. Aliquam erat volutpat. Nulla eros
+                                est, imperdiet vel feugiat non, ullamcorper mattis nulla.
+                            </p>
+                            <form action="#" method="GET" class="tm-call-to-action-form">
+                                <input type="email" name="email" placeholder="Email" class="tm-email-input" required />
+                                <button type="submit" class="btn btn-primary">
+                                    Subscribe
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <!-- Page footer -->
         <footer class="row tm-page-footer">
             <p class="col-12 tm-copyright-text mb-0">
                 Copyright &copy; 2019 Next Level Company... Designed by
@@ -76,8 +192,6 @@ https://templatemo.com/tm-532-next-level
             </p>
         </footer>
     </div>
-
-
 </body>
 
 </html>
