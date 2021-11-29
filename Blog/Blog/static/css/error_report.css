@@ -1,3 +1,17 @@
 .tm-bg-gradient-error{
     background: linear-gradient( 135deg, #9ec1cf 0%, #a5cbda 100% );
 }
+
+.error_list{
+    padding-left: 50% !important;
+    background-color: red !important;
+}
+
+#sibal{
+    background-color: red;
+}
+
+.tag-setting{
+    text-decoration:none;
+    color: red;
+}
