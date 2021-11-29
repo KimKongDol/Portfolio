@@ -389,7 +389,7 @@ ul.tm-list-plus li:before {
 
 .tabs > li > a.active .tm-tab-icon,
 .tabs > li > a:hover .tm-tab-icon {
-  background-color: #669999;
+  background-color: #b9d6d6;
 }
 
 .tm-about-person { max-width: 280px; }

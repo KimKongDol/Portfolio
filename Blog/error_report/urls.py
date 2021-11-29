@@ -4,4 +4,5 @@ from .views import *
 app_name = "error"
 urlpatterns = [
     path('error_index/', error_index, name="error_index"),
+    path('error_detail/<str:id>', error_detail, name="error_detail"),
 ]

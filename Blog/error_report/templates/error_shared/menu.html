@@ -2,19 +2,19 @@
     <ul class="tabs clearfix" data-tabgroup="first-tab-group">
         <li>
             <!-- <a href="#tab1" class="active"> -->
-            <a href="#tab2" class="">
+            <a href="#" class="all_btn" onclick="change_bg_color()">
                 <div class="tm-tab-icon"></div>
                 ALL
             </a>
         </li>
         <li>
-            <a href="#tab2" id="error_menubar">
+            <a href="#tab2" id="error_menubar" class="jango_btn">
                 <div class="tm-tab-icon"></div>
                 <span>DJANGO</span>
             </a>
         </li>
         <li>
-            <a href="{% url 'music:new' %}" class="write-icons">
+            <a href="{% url 'music:new' %}" class="write-icons write_btn">
                 <div class="tm-tab-icon"></div>
                 <i class="fas fa-user-lock"></i>&nbsp;
                 ADD NEW
@@ -22,3 +22,29 @@
         </li>
     </ul>
 </div>
+
+<script>
+    $(function () {
+        $(".all_btn").click(function () {
+            // $(".all_btn").text("마우스가 올라갔을 때");
+            $(".jango_btn > div").css("background-color", "");
+            $(".all_btn > div").css("background-color", "#b9d6d6");
+            $(".write_btn > div").css("background-color", "");
+        })
+
+        $(".jango_btn").click(function () {
+            // $(".all_btn").text("마우스가 올라갔을 때");
+            $(".jango_btn > div").css("background-color", "#b9d6d6");
+            $(".all_btn > div").css("background-color", "");
+            $(".write_btn > div").css("background-color", "");
+        })
+
+        $(".write_btn").click(function () {
+            // $(".all_btn").text("마우스가 올라갔을 때");
+            $(".jango_btn > div").css("background-color", "");
+            $(".all_btn > div").css("background-color", "");
+            $(".write_btn > div").css("background-color", "#b9d6d6");
+        })
+
+    })
+</script>

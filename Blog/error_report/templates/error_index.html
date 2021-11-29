@@ -28,8 +28,10 @@
           {% for ErrorReport in all_errors %}
           <div class="row tm-pt-5"
             style="border-bottom: solid 3px #a0c0c0; padding: 3% 1% 3% 1% ;display: flex;align-items: center;">
-            <i class="far fa-hand-paper fa-2x" style="padding-right: 1%;"></i>
-            <span>&nbsp; {{ErrorReport.title}}</spam>
+            <a href="{% url 'error:error_detail' ErrorReport.id %}">
+              <i class="far fa-hand-paper fa-2x" style="padding-right: 1%;"></i>
+              <span>&nbsp; {{ErrorReport.title}}</span>
+            </a>
           </div>
           {% endfor %}
         </div>
