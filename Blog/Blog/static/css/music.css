@@ -53,10 +53,10 @@ textarea{
 .menu-btn{
     background-color: #a0c0c0; 
     border: white; 
-    border-radius: 10%; 
+    border-radius: 10px; 
     color: white; 
     float: right; 
-    margin-bottom: 30px;
+    margin-bottom: 0.5%;
     width: 20%;
     font-size: 20px;
     margin-left: 0.5%;

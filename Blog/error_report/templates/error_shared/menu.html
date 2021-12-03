@@ -2,7 +2,7 @@
     <ul class="tabs clearfix" data-tabgroup="first-tab-group">
         <li>
             <!-- <a href="#tab1" class="active"> -->
-            <a href="#" class="all_btn" onclick="change_bg_color()">
+            <a href="{% url 'error:error_index' %}" class="all_btn" onclick="change_bg_color()">
                 <div class="tm-tab-icon"></div>
                 ALL
             </a>
@@ -14,7 +14,7 @@
             </a>
         </li>
         <li>
-            <a href="{% url 'music:new' %}" class="write-icons write_btn">
+            <a href="{% url 'error:new' %}" class="write-icons write_btn">
                 <div class="tm-tab-icon"></div>
                 <i class="fas fa-user-lock"></i>&nbsp;
                 ADD NEW

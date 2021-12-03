@@ -9,28 +9,29 @@
     <!-- 음약 메뉴 파트들 -->
     {% include './error_shared/menu.html' %}
     <!-- 음약 메뉴 파트들 -->
-    <div class="tm-page-col-right tm-tab-contents" style="margin-bottom: 45px; border-bottom: solid 5px #a0c0c0; ">
+    <div class="tm-page-col-right tm-tab-contents error-boarder">
       <div id="first-tab-group" class="tabgroup">
         <div id="tab1">
           <div class="text-content">
-            <h3 class="tm-text-secondary tm-mb-5" style="margin-bottom: 10px !important; ">
+            <h3 class="tm-text-secondary tm-mb-5 error-list-title">
               에러 리스트
             </h3>
-            <div class="tm-mb-8" style="margin-bottom: 45px; border-bottom: solid 5px #a0c0c0; ">
+            <div class="tm-mb-8">
               "에러가 있음에 내가 발전할 수 있고 그 에러 목록 수정으로 보람을 느끼니까 고마워하자^^"
             </div>
+            <hr>
             <!-- <p class="tm-mb-5">
               {{all_songs}}
             </p> -->
             {% for ErrorReport in all_errors %}
-            <div class="error_list" style="padding: 0 0 13px 5%;">
-              <a class="tag-setting" href="{% url 'error:error_detail' ErrorReport.id %}">
+            <div class="error_list">
+              <a class="tag-setting" id="error-tags" href="{% url 'error:error_detail' ErrorReport.id %}">
                 <i class="far fa-hand-paper fa-2x" style="padding-right: 1%;"></i>
-                <span id="sibal">&nbsp; {{ErrorReport.title}}</span>
+                <span>&nbsp; {{ErrorReport.title}}</span>
               </a>
-              <a href="#">태그</a>
             </div>
             {% endfor %}
+            <hr>
           </div>
 
         </div>
@@ -38,6 +39,20 @@
     </div>
   </div>
 </section>
+
+<script>
+  $(".error_list").mouseover(
+    function () {
+      $(this).css("background-color", "rgba(160, 192, 192, 0.1)");
+    }
+  )
+
+  $(".error_list").mouseleave(
+    function () {
+      $(this).css("background-color", "");
+    }
+  )
+</script>
 
 
 {% endblock %}

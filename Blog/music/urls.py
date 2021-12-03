@@ -8,9 +8,9 @@ urlpatterns = [
     path('music_index/', music_index, name='music_index'),
     # 하나의 템플릿으로 여러 경우의 페이지를 띄운다.
     path('<str:id>', detail, name='detail'),
-    path('new/', new, name='new'),
-    path('create/', create, name="create"),
-    path('edit/<str:id>', edit, name="edit"),
-    path('update/<str:id>', update, name="update"),
-    path('delete/<str:id>', delete, name="delete"),
+    path('music_new/', new, name='new'),
+    path('music_create/', create, name="create"),
+    path('music_edit/<str:id>', edit, name="edit"),
+    path('music_update/<str:id>', update, name="update"),
+    path('music_delete/<str:id>', delete, name="delete"),
 ]
