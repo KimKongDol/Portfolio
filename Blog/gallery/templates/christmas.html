@@ -1,0 +1,338 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="{%static 'img/christmas/title.png' %}">
+    <style>
+        a {
+            text-decoration: none;
+            color: white;
+            border-bottom: 3px solid white;
+        }
+
+        a:hover {
+            color: black;
+            border-bottom: 3px solid black;
+        }
+
+        .list-btns {
+            font-family: 'Gugi', cursive;
+            font-size: 25px;
+            padding: 10px;
+            border: 3px solid white !important;
+            border-radius: 5px;
+        }
+
+        body {
+            background-color: #ffa793;
+            overflow-x: hidden;
+            cursor: url("{%static 'img/christmas/cursor.cur' %}"),
+            auto;
+            font-family: 'Rock Salt', cursive;
+        }
+
+        section {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-top: dotted 3px white;
+
+        }
+
+        h1 {
+            font-size: 50px;
+            position: absolute;
+            left: 50%;
+            top: 45%;
+            transform: translate(-50%, -50%);
+            padding: 3%;
+            border-radius: 20px;
+            transition: all 0.5s ease-in;
+        }
+
+        h1:hover {
+            /* background: rgba(255, 255, 255, 0.3); */
+            color: rgb(0, 105, 0);
+            text-decoration: overline wavy;
+            text-underline-position: under;
+            text-decoration-color: red;
+        }
+
+
+        h2 {
+            font-size: 30px;
+            color: white;
+        }
+
+        .ElementTitle {
+            font-size: 30px;
+            padding-bottom: 3px;
+            visibility: hidden;
+            transform: translate(0, -70%);
+            transition: all 1s ease-in-out;
+        }
+
+        section.active .PlanBox span {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0, 0);
+        }
+
+        .PlanBox {
+            background-color: #ffc3b6;
+            height: 600px;
+            width: 600px;
+            padding: 3%;
+            overflow: hidden;
+            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            /*수직 정렬*/
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 20px;
+            border: dashed white;
+        }
+
+        .PlanBox>img {
+            width: 60%;
+            height: auto;
+            object-fit: cover;
+            visibility: hidden;
+            transition: all 1s ease-in-out;
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        section.active .PlanBox img {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0, 0);
+        }
+
+        @keyframes blink-effect {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .shine.active {
+            visibility: visible;
+        }
+
+        .shine.active {
+            visibility: visible;
+            animation: blink-effect 1s step-end infinite;
+        }
+
+        .last-images {
+            height: 700px;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .last-images>img {
+            object-fit: contain;
+            height: 80%;
+            position: absolute;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+        }
+
+        .LastPage {
+            font-size: 40px;
+            color: white;
+            z-index: 1;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .fa-sun.active {
+            visibility: visible;
+            color: yellow;
+
+        }
+
+        .fa-moon.active {
+            visibility: visible;
+            color: yellow;
+        }
+
+        .shine {
+            visibility: hidden;
+        }
+
+        body section:nth-child(6) {
+            /* 서서히 어두워지게 할 예정 */
+            transition: background-color 2.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        }
+
+        .phoneLight {
+            visibility: hidden;
+            transition: visibility 2.5 ease-in;
+        }
+
+        .phoneLight.active {
+            visibility: visible;
+        }
+
+
+
+        /* i {
+    visibility: hidden;
+    } */
+    </style>
+    <script>
+        window.onload = function () {
+            var section = document.getElementsByTagName("section");
+            var first = document.getElementsByTagName("h1")[0];
+            var icons = document.getElementsByTagName("i");
+            var shine = document.querySelector(".shine");
+            var phoneLight = document.querySelector(".phoneLight");
+            var pageNum = 0;
+            var totalPage = section.length;
+
+            icons[0].addEventListener("click", function () {
+                icons[0].classList.add("active");
+                icons[1].classList.remove("active");
+                shine.classList.remove("active");
+                phoneLight.classList.remove("active");
+                section[5].style.background = "#ffa793";
+            }
+            )
+
+            icons[1].addEventListener("click", function () {
+                icons[0].classList.remove("active");
+                icons[1].classList.add("active");
+                shine.classList.add("active");
+                phoneLight.classList.add("active");
+                section[5].style.background = "#330900";
+            }
+            )
+
+            first.addEventListener("click", function () {
+                console.log("clicked");
+                pageNum = 1;
+                pageChangeFunc();
+                window.scrollTo({
+                    top: section[pageNum].offsetTop,
+                    behavior: 'smooth',
+                })
+            })
+
+
+            //스크롤따라 페이지 탑 조절
+            window.addEventListener("scroll", function (event) {
+                var scroll = this.scrollY; //가로 스크롤 크기잡기
+                console.log(scroll);
+                for (var i = 0; i < totalPage; i++) {
+                    if (scroll > section[i].offsetTop - window.outerHeight / 1.5 && scroll < section[i].offsetTop + section[i].offsetHeight - window.outerHeight / 1.5) {
+                        pageNum = i;
+                        break;
+                    }
+                }
+                pageChangeFunc(); //스크롤값 계산해서 페이지 넘버로 붙여주고 페이지 바꿈
+            })
+
+            function pageChangeFunc() {
+                for (var i = 0; i < totalPage; i++) {
+                    section[i].classList.remove("active");
+                }
+                section[pageNum].classList.add("active");
+            }
+
+            pageChangeFunc();
+        }
+    </script>
+</head>
+
+<body>
+    <section>
+        <div class="title-box">
+            <h1> My Geeky Christmas Plan</h1>
+        </div>
+    </section>
+
+    <section>
+        <h2># Plan Start</h2>
+        <div class="PlanBox">
+            <span class="ElementTitle">decorating a tree with the most beautiful decos</span>
+            <img src="{%static 'img/christmas/tree.png' %}">
+        </div>
+    </section>
+
+    <section>
+        <h2># Plan 2</h2>
+        <div class="PlanBox">
+            <span class="ElementTitle">eating cherry chocolate cake "all alone "</span>
+            <img src="{%static 'img/christmas/cake.png' %}">
+        </div>
+    </section>
+
+    <section>
+        <h2># Plan 3</h2>
+        <div class="PlanBox">
+            <span class="ElementTitle">reading all of my ex’s last texts</span>
+            <img src="{%static 'img/christmas/text.png' %}" />
+        </div>
+    </section>
+
+    <section>
+        <h2># Plan 4</h2>
+        <div class="PlanBox">
+            <span class="ElementTitle">crying till christmas day end</span>
+            <img src="{%static 'img/christmas/crying.png' %}">
+        </div>
+    </section>
+
+    <section>
+        <span class="LastPage">So My Christmas day will be like this at
+            <i class="fas fa-sun active"></i>
+            <i class="fas fa-moon"></i>
+        </span>
+        <p>(click the moon/sun to change time)</p>
+        <div class="last-images">
+            <img src="{%static 'img/christmas/all.png' %}" />
+            <img class="shine" src="{%static 'img/christmas/night.png' %}" />
+            <img class="phoneLight" src="{%static 'img/christmas/phoneLight.png' %}" />
+        </div>
+    </section>
+    <section>
+        <h2>CONCEPTION: Kim-SeongMin</h2>
+        <h2>ILLUSTRAION: Kim-SeongMin</h2>
+        <h2>THE CODE? <a href="https://github.com/KimKongDol/InteractiveProgramming.git" target="_blank">click " <i
+                    class="fab fa-github fa-2x"></i> "</a></h2>
+        <h2>
+            <i class="fas fa-chevron-down"></i> BACK &nbsp TO <i class="fas fa-chevron-down"></i>
+        </h2>
+        <span>
+            <a class="list-btns" href="{% url 'index:index'%}">HOME</a>
+            <a class="list-btns" href="{% url 'music:music_index'%}">LYRICS</a>
+            <a class="list-btns" href="{% url 'error:error_index'%}">ERRORS</a>
+            <a class="list-btns" href="{% url 'gallery:gallery_index' %}">GALLERY</a>
+            <a class="list-btns" href="{% url 'index:contact' %}">CONTACT</a>
+        </span>
+    </section>
+</body>
+
+</html>

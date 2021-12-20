@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'index',
     'music',
     'error_report',
+    'gallery',
 ]
 
 MIDDLEWARE = [

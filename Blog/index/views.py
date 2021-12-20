@@ -9,8 +9,8 @@ def showmain(request):
     return render(request, 'index.html')
 
 
-def showgallery(request):
-    return render(request, 'gallery.html')
+# def showgallery(request):
+#     return render(request, 'gallery.html')
 
 
 def showcontact(request):
