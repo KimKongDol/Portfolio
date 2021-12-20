@@ -18,7 +18,7 @@
                         <h3 class="tm-text-secondary tm-mb-5" style="border-bottom: solid 5px #a0c0c0;">
                             새로운 에러
                         </h3>
-                        <form action="{% url 'error:create' %}" method="post">
+                        <form action="{% url 'error:create' %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             <p class="tm-mb-7">
                                 <i class="fas fa-stream"></i>
@@ -32,6 +32,8 @@
                             <p class="tm-mb-7">
                                 에러상황
                                 <textarea name="error"></textarea>
+                                에러사진(선택)
+                                <input type="file" name="image">
                             </p>
                             <p class="tm-mb-7">
                                 에러 솔루션
@@ -40,13 +42,13 @@
                                 <textarea name="sol"></textarea>
                             </p>
                             <p class="tm-mb-7">
-                                에러를 어떻게 찾았는가
+                                에러를 어떻게 찾았는가(선택)
                                 <i class="fas fa-pen-alt"></i>
                                 <br>
                                 <textarea name="how"></textarea>
                             </p>
                             <button class="menu-btn" type="submit">
-                                수정
+                                등록
                                 <i class="far fa-check-circle"></i>
                             </button>
                         </form>

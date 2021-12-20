@@ -33,6 +33,12 @@
                     </div>
                     <div>사용한 언어: {{unit_error.lang}}</div>
                     <div>발생한 에러: {{unit_error.error}}</div>
+                    <div>
+                        {% if unit_error.image %}
+                        <img src="{{ unit_error.image.url }}" alt="에러사진" />
+                        {% endif %}
+                    </div>
+
                     <div>에러 솔루션: {{unit_error.error}}</div>
                     {% if unit_error.how %}
                     <div>어떻게 솔루션을 찾았는가: {{unit_error.how}}</div>
@@ -46,6 +52,4 @@
         </div>
     </div>
 </section>
-
-
 {% endblock %}

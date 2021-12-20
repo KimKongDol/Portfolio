@@ -129,9 +129,11 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [
-    # os.path.join(BASE_DIR, 'Blog', 'static')  # 현재 static파일들이 어디어있는지
+STATICFILES_DIRS = [ # 현재 static파일들이 어디어있는지
     os.path.join(BASE_DIR, 'Blog', 'static')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #이용자가 업로드한 파일 모을예정 
+MEDIA_URL = '/media/'

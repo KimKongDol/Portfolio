@@ -25,6 +25,7 @@ def error_create(request):
     new_error.error = request.POST['error']
     new_error.sol = request.POST['sol']
     new_error.how = request.POST['how']
+    new_error.image = request.FILES['image']
     new_error.save()
     return redirect('error:error_detail', new_error.id)
 
