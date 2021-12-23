@@ -1,0 +1,29 @@
+.mypage_title {
+    font-family: 'Grandpa_sharing';
+    color: #8586AB;
+    font-size: 35px;
+}
+
+.trans_eng{
+    color: rgba(147, 148, 189, 0.6);
+}
+
+.tm-bg-gradient-mypage{
+    background: linear-gradient( 135deg, #9394BD 0%, #8586AB 100% );
+}
+
+.mypage_sidebar{
+    border-right: rgba(147, 148, 189, 0.3) solid 3px;
+}
+
+.log_btn_text{
+    border: #8586AB dotted 3px;    
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'Grandpa_sharing' !important;
+    color: rgba(147, 148, 189, 1);
+}
+
+.log_btn{
+    display: inline;
+}

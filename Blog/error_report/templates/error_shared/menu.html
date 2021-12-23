@@ -13,6 +13,7 @@
                 <span>DJANGO</span>
             </a>
         </li>
+        {% if user.username == 'kim' %}
         <li>
             <a href="{% url 'error:new' %}" class="write-icons write_btn">
                 <div class="tm-tab-icon"></div>
@@ -20,6 +21,7 @@
                 ADD NEW
             </a>
         </li>
+        {% endif %}
     </ul>
 </div>
 

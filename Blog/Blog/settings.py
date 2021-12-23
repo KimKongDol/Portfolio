@@ -42,6 +42,11 @@ INSTALLED_APPS = [
     'music',
     'error_report',
     'gallery',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -129,11 +134,21 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [ # 현재 static파일들이 어디어있는지
+STATICFILES_DIRS = [  # 현재 static파일들이 어디어있는지
     os.path.join(BASE_DIR, 'Blog', 'static')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #이용자가 업로드한 파일 모을예정 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 이용자가 업로드한 파일 모을예정
 MEDIA_URL = '/media/'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# admin페이지 관리 번호, 단의서버는 1을 입력하면 된다.
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/mypage/'  # 로그인되면 이동할 페이지

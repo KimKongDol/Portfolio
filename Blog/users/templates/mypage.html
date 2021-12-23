@@ -1,0 +1,47 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row tm-welcome-row">
+  <div class="col-12 tm-page-cols-container">
+    <div class="tm-page-col-left tm-welcome-box tm-bg-gradient-mypage">
+      <p class="tm-welcome-text">
+        <em>어머 얘 웬일이야~~</em>
+      </p>
+    </div>
+    <div class="tm-page-col-right">
+      <div class="tm-welcome-parallax" data-parallax="scroll" data-image-src="{%static 'img/mypage.jpg' %}"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 유저 확인 후에 보여줄 예정 -->
+{% if user.is_authenticated %}
+
+  {% include './user_okay.html' %}
+
+{% else %}
+
+{% include './user_unknown.html' %}
+
+  {% endif %}
+
+<script>
+  $(document).on("change", ":file", function () {
+    var input = $(this),
+      numFiles = input.get(0).files ? input.get(0).files.length : 1,
+      label = input
+        .val()
+        .replace(/\\/g, "/")
+        .replace(/.*\//, "");
+    input.trigger("fileselect", [numFiles, label]);
+  });
+
+  $(document).ready(function () {
+    $(":file").on("fileselect", function (event, numFiles, label) {
+      $("#file_name_label").attr("placeholder", label);
+    });
+  });
+</script>
+{% endblock %}
