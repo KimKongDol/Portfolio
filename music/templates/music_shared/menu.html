@@ -1,0 +1,29 @@
+{% include './script.html' %}
+
+<div class="tm-page-col-left tm-tab-links">
+    <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+        <li>
+            <!-- <a href="#tab1" class="active"> -->
+            <a href="{% url 'music:music_index' %}" class="tab1">
+                <div class="tm-tab-icon"></div>
+                LYRICS
+            </a>
+        </li>
+        <li>
+            <a href="#tab2" class="tab2">
+                <div class="tm-tab-icon"></div>
+                (아직 뭐 넣을지 고민)
+            </a>
+        </li>
+        <li>
+            {% if user.username == 'kim' %}
+            <a href="{% url 'music:new' %}" class="write-icons tab3">
+                <div class="tm-tab-icon"></div>
+                <i class="fas fa-user-lock"></i>&nbsp;
+                ADD NEW
+            </a>
+            {% endif %}
+
+        </li>
+    </ul>
+</div>

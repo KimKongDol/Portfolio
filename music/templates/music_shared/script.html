@@ -1,0 +1,22 @@
+<script>
+    $(function () {
+        $(".tab1").click(function () {
+            $(".tab2 > div").css("background-color", "");
+            $(".tab1 > div").css("background-color", "#b9d6d6");
+            $(".tab3 > div").css("background-color", "");
+        })
+
+        $(".tab2").click(function () {
+            $(".tab2 > div").css("background-color", "#b9d6d6");
+            $(".tab1 > div").css("background-color", "");
+            $(".tab3 > div").css("background-color", "");
+        })
+
+        $(".tab3").click(function () {
+            $(".tab2 > div").css("background-color", "");
+            $(".tab1 > div").css("background-color", "");
+            $(".tab3 > div").css("background-color", "#b9d6d6");
+        })
+
+    })
+</script>

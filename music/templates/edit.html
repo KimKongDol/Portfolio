@@ -1,0 +1,82 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- 페이지 설명과ㅏ 사진있는 파트 -->
+{% include './music_shared/picpart.html' %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 끝 -->
+<link rel="stylesheet" href="{%static 'css/music.css' %}" />
+<section class="row tm-pt-4 tm-pb-6">
+    <div class="col-12 tm-tabs-container tm-page-cols-container">
+        <!-- 음약 메뉴 파트들 -->
+        {% include './music_shared/menu.html' %}
+        <!-- 음약 메뉴 파트들 -->
+
+        <div class="tm-page-col-right tm-tab-contents" style="border-bottom: solid 5px #a0c0c0;">
+            <div id="first-tab-group" class="tabgroup">
+                <div id="tab1">
+                    <div class="text-content">
+                        <h3 class="tm-text-secondary tm-mb-5" style="border-bottom: solid 5px #a0c0c0;">
+                            가사 수정하기
+                        </h3>
+                        <form action="{% url 'music:update' edit_song.id %}" method="post">
+                            {% csrf_token %}
+                            <p class="tm-mb-7">
+                                <i class="fas fa-stream"></i>
+                                곡명
+                                <input type="text" name="title" value="{{edit_song.title}}">
+                            </p>
+                            <p class="tm-mb-7">
+                                <i class="fas fa-teeth-open"></i>
+                                가수 <input type="text" name="singer" value="{{edit_song.singer}}">
+                            </p>
+                            <p class="tm-mb-7">
+                                장르
+                                <i class="fas fa-comments-dollar"></i>
+                                <i class="fas fa-mug-hot"></i>
+                                <i class="fas fa-music"></i>
+                                <i class="far fa-question-circle"></i>
+                                <i class="fas fa-ellipsis-h"></i>
+                                <br>
+                                <select class="genre-option" name="genre">
+                                    <option value="unknown">알 수 없음
+                                    </option>
+                                    <option value="발라드">발라드
+                                    </option>
+                                    <option value="힙합">힙합
+                                    </option>
+                                    <option value="팝">팝
+                                    </option>
+                                </select>
+                            </p>
+
+                            <p class="tm-mb-7">
+                                가사
+                                <i class="fas fa-pen-alt"></i>
+                                <br>
+                                <textarea name="lyrics">{{edit_song.lyrics}}</textarea>
+                            </p>
+                            <button class="menu-btn" type="submit">
+                                수정
+                                <i class="far fa-check-circle"></i>
+                            </button>
+                        </form>
+                        <a href="{% url 'music:music_index' %}">
+                            <button class="menu-btn"> 취소 </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(".genre-option").val("{{edit_song.genre}}").prop("selected", true); //헐 와우
+</script>
+
+
+{% include './music_shared/script.html' %}
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 -->
+{% include './error_shared/picpart.html' %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 끝 -->
+<section class="row tm-pt-4 tm-pb-6">
+  <div class="col-12 tm-tabs-container tm-page-cols-container">
+    <!-- 음약 메뉴 파트들 -->
+    {% include './error_shared/menu.html' %}
+    <!-- 음약 메뉴 파트들 -->
+    <div class="tm-page-col-right tm-tab-contents error-boarder">
+      <div id="first-tab-group" class="tabgroup">
+        <div id="tab1">
+          <div class="text-content">
+            <h3 class="tm-text-secondary tm-mb-5 error-list-title">
+              에러 리스트
+            </h3>
+            <div class="tm-mb-8">
+              "에러가 있음에 내가 발전할 수 있고 그 에러 목록 수정으로 보람을 느끼니까 고마워하자^^"
+            </div>
+            <hr>
+            <!-- <p class="tm-mb-5">
+              {{all_songs}}
+            </p> -->
+            {% for ErrorReport in all_errors %}
+            <div class="error_list">
+              <a class="tag-setting" id="error-tags" href="{% url 'error:error_detail' ErrorReport.id %}">
+                <i class="far fa-hand-paper fa-2x" style="padding-right: 1%;"></i>
+                <span>&nbsp; {{ErrorReport.title}}</span>
+              </a>
+            </div>
+            {% endfor %}
+            <hr>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $(".error_list").mouseover(
+    function () {
+      $(this).css("background-color", "rgba(160, 192, 192, 0.1)");
+    }
+  )
+
+  $(".error_list").mouseleave(
+    function () {
+      $(this).css("background-color", "");
+    }
+  )
+</script>
+
+
+{% endblock %}

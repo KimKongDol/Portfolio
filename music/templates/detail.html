@@ -1,0 +1,78 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- 버튼 제이쿼리 후 수정들어가기 -->
+<!-- 페이지 설명과ㅏ 사진있는 파트 -->
+{% include './music_shared/picpart.html' %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 끝 -->
+
+<section class="row tm-pt-4 tm-pb-6">
+    <div class="col-12 tm-tabs-container tm-page-cols-container">
+        <!-- 음약 메뉴 파트들 -->
+        {% include './music_shared/menu.html' %}
+        <!-- 음약 메뉴 파트들 -->
+
+        <div class="tm-page-col-right tm-tab-contents" style="border-bottom: solid 5px #a0c0c0;">
+            <div id="first-tab-group" class="tabgroup">
+                <div id="tab1">
+                    <div class="text-content">
+                        <h3 class="tm-text-secondary tm-mb-5" style="border-bottom: solid 5px #a0c0c0;">
+                            {{unit_song.title}}
+                            <div class="btns">
+                                <!-- <button class="menu-btn btn_menu">이것은 버튼이다.</button> -->
+                                <i class="fas fa-edit btn_menu menu_list"></i>
+
+                                <a href="{% url 'music:delete' unit_song.id %}">
+                                    <button class="delete_btn">삭제</button>
+                                </a>
+                                <a href="{% url 'music:edit' unit_song.id %}">
+                                    <button class="edit_btn">수정</button>
+                                </a>
+                            </div>
+                        </h3>
+                        <p class="tm-mb-5">
+                            가수: {{unit_song.singer}}
+                        </p>
+                        <p class="tm-mb-5">
+                            장르: {{unit_song.genre}}
+                        </p>
+                        <p class="tm-mb-5">
+                            가사: {{unit_song.lyrics}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'music:music_index' %}">
+                <button class="menu-btn"> 목록 << </button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function () {
+        $(".edit_btn").hide();
+        $(".delete_btn").hide();
+        $(".btn_menu").show();
+
+
+        $(".btn_menu").click(function () {
+            // $(".btn_menu").text("마우스가 올라갔을 때");
+            $(".edit_btn").show();
+            $(".delete_btn").show();
+            $(".btn_menu").hide();
+        })
+
+        // $(".btn_menu").mouseout(function () {
+        //     // $(".btn_menu").text("마우스가 내려왔을 때");
+        //     $(".edit_btn").hide();
+        //     $(".delete_btn").hide();
+        // })
+
+    })
+</script>
+
+
+
+{% endblock %}

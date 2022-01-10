@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 -->
+{% include './error_shared/picpart.html' %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 끝 -->
+<section class="row tm-pt-4 tm-pb-6">
+    <div class="col-12 tm-tabs-container tm-page-cols-container">
+        <!-- 음약 메뉴 파트들 -->
+        {% include './error_shared/menu.html' %}
+        <!-- 음약 메뉴 파트들 -->
+        <div class="tm-page-col-right tm-tab-contents" style="border-bottom: solid 5px #a0c0c0;">
+
+            <div id="first-tab-group" class="tabgroup">
+                <div id="tab1">
+                    <div class="text-content">
+                        <h3 class="tm-text-secondary tm-mb-5">
+                            {{unit_error.title}}
+                            <hr>
+                            <div class="edit-del-icons">
+                                <a href="{% url 'error:error_delete' unit_error.id %}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                                <a href="{% url 'error:error_edit' unit_error.id %}">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                            </div>
+                        </h3>
+
+                        <!-- <div class="tm-mb-8" style="margin-bottom: 45px; border-bottom: solid 5px #a0c0c0; ">
+                            "에러가 있음에 내가 발전할 수 있고 그 에러 목록 수정으로 보람을 느끼니까 고마워하자!"
+                        </div> -->
+                    </div>
+                    <div>사용한 언어: {{unit_error.lang}}</div>
+                    <div>발생한 에러: {{unit_error.error}}</div>
+                    <div>
+                        {% if unit_error.image %}
+                        <img src="{{ unit_error.image.url }}" alt="에러사진" />
+                        {% endif %}
+                    </div>
+
+                    <div>에러 솔루션: {{unit_error.error}}</div>
+                    {% if unit_error.how %}
+                    <div>어떻게 솔루션을 찾았는가: {{unit_error.how}}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <a href="{% url 'error:error_index' %}" class="list-icon">
+                <!-- <button class="menu-btn"> 목록 << </button> -->
+                <i class="fas fa-list fa-2x"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

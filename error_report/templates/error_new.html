@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 -->
+{% include './error_shared/picpart.html' %}
+<!-- 페이지 설명과ㅏ 사진있는 파트 끝 -->
+
+<section class="row tm-pt-4 tm-pb-6">
+    <div class="col-12 tm-tabs-container tm-page-cols-container">
+        <!-- 음약 메뉴 파트들 -->
+        {% include './error_shared/menu.html' %}
+        <!-- 음약 메뉴 파트들 -->
+
+        <div class="tm-page-col-right tm-tab-contents" style="border-bottom: solid 5px #a0c0c0;">
+            <div id="first-tab-group" class="tabgroup">
+                <div id="tab1">
+                    <div class="text-content">
+                        <h3 class="tm-text-secondary tm-mb-5" style="border-bottom: solid 5px #a0c0c0;">
+                            새로운 에러
+                        </h3>
+                        <form action="{% url 'error:create' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <p class="tm-mb-7">
+                                <i class="fas fa-stream"></i>
+                                타이틀
+                                <input type="text" name="title">
+                            </p>
+                            <p class="tm-mb-7">
+                                <i class="fas fa-teeth-open"></i>
+                                사용한 언어 <input type="text" name="lang">
+                            </p>
+                            <p class="tm-mb-7">
+                                에러상황
+                                <textarea name="error"></textarea>
+                                에러사진(선택)
+                                <input type="file" name="image">
+                            </p>
+                            <p class="tm-mb-7">
+                                에러 솔루션
+                                <i class="fas fa-pen-alt"></i>
+                                <br>
+                                <textarea name="sol"></textarea>
+                            </p>
+                            <p class="tm-mb-7">
+                                에러를 어떻게 찾았는가(선택)
+                                <i class="fas fa-pen-alt"></i>
+                                <br>
+                                <textarea name="how"></textarea>
+                            </p>
+                            <button class="menu-btn" type="submit">
+                                등록
+                                <i class="far fa-check-circle"></i>
+                            </button>
+                        </form>
+                        <a href="{% url 'error:error_index' %}">
+                            <button class="menu-btn"> 취소 </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
