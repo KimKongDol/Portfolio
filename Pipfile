@@ -31,7 +31,7 @@ toml = "==0.10.2"
 urllib3 = "==1.26.7"
 virtualenv = "==20.10.0"
 virtualenv-clone = "==0.5.7"
-Django = "==3.2.9"
+Django = "==3.2.10"
 Pillow = "==8.4.0"
 PyJWT = "==2.3.0"
 
