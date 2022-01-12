@@ -1,8 +1,49 @@
-.mypage_title {
-    font-family: 'Grandpa_sharing';
-    color: #8586AB;
-    font-size: 35px;
-}
+@media (max-width:767px) {
+    .mypage_title {
+        font-size: 6vw;
+    }
+  
+    .mypage_title {
+     font-size: 5vw;
+     max-width: 50%;
+     margin: 3%; /* 블럭끼리 */
+     padding: 5%; /*블럭내부*/
+     font-family: 'Grandpa_sharing';
+     color: #8586AB;
+     text-align: center;
+    }
+ 
+    .log_btn_text{
+     border: #8586AB dotted 3px;    
+     border-radius: 10px;
+     margin: 5px;
+     font-family: 'Grandpa_sharing' !important;
+     color: rgba(147, 148, 189, 1);
+ }
+ }
+ 
+ @media (min-width:1024px){
+     .mypage_title {
+         font-size: 6vw;
+     }
+   
+     .mypage_title {
+      font-size: 5vw;
+      max-width: 50%;
+      margin: 3%; /* 블럭끼리 */
+      padding: 5%; /*블럭내부*/
+      font-family: 'Grandpa_sharing';
+     color: #8586AB;
+     text-align: center;
+     }
+     .log_btn_text{
+         border: #8586AB dotted 3px;    
+         border-radius: 10px;
+         margin: 5px;
+         font-family: 'Grandpa_sharing' !important;
+         color: rgba(147, 148, 189, 1);
+     }
+ }
 
 .trans_eng{
     color: rgba(147, 148, 189, 0.6);
@@ -16,14 +57,23 @@
     border-right: rgba(147, 148, 189, 0.3) solid 3px;
 }
 
-.log_btn_text{
+.mypage_title {
     border: #8586AB dotted 3px;    
     border-radius: 10px;
-    margin: 5px;
     font-family: 'Grandpa_sharing' !important;
     color: rgba(147, 148, 189, 1);
+    text-align: center;
 }
 
-.log_btn{
-    display: inline;
+.log_btns{
+    display: flex;
+    justify-content: center;
 }
+
+.sign-container{
+    display:flex;
+    flex-direction: column;
+}
+
+
+

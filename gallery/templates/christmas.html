@@ -16,15 +16,25 @@
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/x-icon" href="{%static 'img/christmas/title.png' %}">
     <style>
+        * {
+            width: 100vw;
+        }
+
         a {
             text-decoration: none;
             color: white;
-            border-bottom: 3px solid white;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.644);
         }
 
         a:hover {
             color: black;
+
             border-bottom: 3px solid black;
+        }
+
+        i {
+            width: auto;
+            margin: 0.1vmin;
         }
 
         .list-btns {
@@ -56,7 +66,8 @@
         }
 
         h1 {
-            font-size: 50px;
+            text-align: center;
+            font-size: 5vmin;
             position: absolute;
             left: 50%;
             top: 45%;
@@ -76,12 +87,15 @@
 
 
         h2 {
+            text-align: center;
             font-size: 30px;
             color: white;
         }
 
         .ElementTitle {
-            font-size: 30px;
+            width: 100%;
+            font-size: 2.9296875vmin;
+            text-align: center;
             padding-bottom: 3px;
             visibility: hidden;
             transform: translate(0, -70%);
@@ -100,7 +114,7 @@
             width: 600px;
             padding: 3%;
             overflow: hidden;
-            display: inline-block;
+            /* display: inline-block; */
             display: flex;
             flex-direction: column;
             /*수직 정렬*/
@@ -157,9 +171,14 @@
         }
 
         .LastPage {
-            font-size: 40px;
+            text-align: center;
+            font-size: 4vmin;
             color: white;
             z-index: 1;
+        }
+
+        .LastPage i {
+            border: white solid;
         }
 
         p {
@@ -196,6 +215,12 @@
             visibility: visible;
         }
 
+        .description {
+            color: white;
+            font-size: 3vmin;
+            text-align: center;
+
+        }
 
 
         /* i {
@@ -218,6 +243,9 @@
                 shine.classList.remove("active");
                 phoneLight.classList.remove("active");
                 section[5].style.background = "#ffa793";
+                icons[0].innerHTML = "(clicked)";
+                icons[1].innerHTML = "(click)";
+
             }
             )
 
@@ -227,6 +255,8 @@
                 shine.classList.add("active");
                 phoneLight.classList.add("active");
                 section[5].style.background = "#330900";
+                icons[0].innerHTML = "(click)";
+                icons[1].innerHTML = "(clicked)";
             }
             )
 
@@ -307,10 +337,9 @@
 
     <section>
         <span class="LastPage">So My Christmas day will be like this at
-            <i class="fas fa-sun active"></i>
-            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun active">(clicked)</i>
+            <i class="fas fa-moon">(click)</i>
         </span>
-        <p>(click the moon/sun to change time)</p>
         <div class="last-images">
             <img src="{%static 'img/christmas/all.png' %}" />
             <img class="shine" src="{%static 'img/christmas/night.png' %}" />
@@ -318,20 +347,24 @@
         </div>
     </section>
     <section>
-        <h2>CONCEPTION: Kim-SeongMin</h2>
-        <h2>ILLUSTRAION: Kim-SeongMin</h2>
-        <h2>THE CODE? <a href="https://github.com/KimKongDol/InteractiveProgramming.git" target="_blank">click " <i
-                    class="fab fa-github fa-2x"></i> "</a></h2>
-        <h2>
-            <i class="fas fa-chevron-down"></i> BACK &nbsp TO <i class="fas fa-chevron-down"></i>
-        </h2>
-        <span>
-            <a class="list-btns" href="{% url 'index:index'%}">HOME</a>
-            <a class="list-btns" href="{% url 'music:music_index'%}">LYRICS</a>
-            <a class="list-btns" href="{% url 'error:error_index'%}">ERRORS</a>
-            <a class="list-btns" href="{% url 'gallery:gallery_index' %}">GALLERY</a>
-            <a class="list-btns" href="{% url 'index:contact' %}">CONTACT</a>
-        </span>
+        <div class="description">
+            <p>CONCEPTION: Kim-SeongMin</p>
+            <p>ILLUSTRAION: Kim-SeongMin</p>
+            <p>THE CODE? <a href="https://github.com/KimKongDol/InteractiveProgramming.git" target="_blank">click "
+                    <i class="fab fa-github fa-2x"></i>
+                </a>"
+            </p>
+            <p>
+                <i class="fas fa-chevron-down"></i> BACK &nbsp TO <i class="fas fa-chevron-down"></i>
+            </p>
+            <span>
+                <a class="list-btns" href="{% url 'index:index'%}">HOME</a>
+                <a class="list-btns" href="{% url 'music:music_index'%}">LYRICS</a>
+                <a class="list-btns" href="{% url 'error:error_index'%}">ERRORS</a>
+                <a class="list-btns" href="{% url 'gallery:gallery_index' %}">GALLERY</a>
+                <a class="list-btns" href="{% url 'index:contact' %}">CONTACT</a>
+            </span>
+        </div>
     </section>
 </body>
 

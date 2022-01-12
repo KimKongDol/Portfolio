@@ -3,6 +3,8 @@
 {% block content %}
 <!-- 페이지 설명과ㅏ 사진있는 파트 -->
 {% include './error_shared/picpart.html' %}
+
+{% if user.username == 'kim' %}
 <!-- 페이지 설명과ㅏ 사진있는 파트 끝 -->
 <section class="row tm-pt-4 tm-pb-6">
   <div class="col-12 tm-tabs-container tm-page-cols-container">
@@ -39,6 +41,9 @@
     </div>
   </div>
 </section>
+{% else %}
+<p style="font-size: 3vmin; text-align: center;">관리자접근 제한 영역입니다..쏘리🙇</p>
+{% endif %}
 
 <script>
   $(".error_list").mouseover(
