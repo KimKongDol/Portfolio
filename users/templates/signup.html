@@ -1,0 +1,73 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block content %}
+<div>
+    <p class="signup-title">저랑 친구해요<i class="fas fa-child"></i><br>별명을 제외한 모든 정보는 저와 가입자만 볼 수 있습니다.</p>
+    <form action="내용 전달할 곳" method="post">
+        {% csrf_token %}
+        <table align="center">
+            <!-- <tr>
+                <td colspan="2" span style="color:red">너 내 동료가 되어라!<br>닉네임을 제외한 모든 정보는 저와 가입자만 볼 수 있습니다.</td>
+            </tr> -->
+            <tr>
+                <!-- 첫번째 줄 시작 -->
+                <td>별명</td>
+                <td><input type="text" name="name"></td>
+            </tr><!-- 첫번째 줄 끝 -->
+            <tr>
+                <td colspan="2" class="explain">가능하면 제가 못알아보는 걸로 합시다!<br />그게 재밌자나용ㅎㅎ</td>
+            </tr>
+            <tr>
+                <td>관계</td>
+                <td><input type="text" name="relation"></td>
+            </tr><!-- 첫번째 줄 끝 -->
+            <tr>
+                <td colspan="2" class="explain">친구/지인/선배/가족/.../MEGA LOVER?</td>
+            </tr>
+            <tr>
+                <td>주 활동지</td>
+                <td>
+                    <select name="home">
+                        <option selected value="서울">서울</option>
+                        <option value="인천">인천</option>
+                        <option value="경기">경기</option>
+                        <option value="강원">강원</option>
+                        <option value="충청">충청</option>
+                        <option value="세종">세종</option>
+                        <option value="대전">대전</option>
+                        <option value="경상">경상</option>
+                        <option value="대구">대구</option>
+                        <option value="전라">전라</option>
+                        <option value="강원">강원</option>
+                        <option value="울산">울산</option>
+                        <option value="부산">부산</option>
+                        <option value="제주">제주</option>
+                    </select>
+                </td>
+            </tr><!-- 첫번째 줄 끝 -->
+            <tr>
+                <td>어떻게 만났나요</td>
+                <td><textarea name="how"
+                        id="howmet">미술관에서 마주쳤다던가, 학교 플젝 멤버라거나, 만난 적 없을 수도 있고 노코멘트해도 되는데 궁금하니까 어렴풋이라도 적어주신다면 감사하겠습니다...♥</textarea>
+                </td>
+            </tr><!-- 첫번째 줄 끝 -->
+            <tr>
+                <td>이메일(선택)</td>
+                <td><input type="text" name="email"></td>
+            </tr><!-- 첫번째 줄 끝 -->
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="name"></td>
+            </tr><!-- 첫번째 줄 끝 -->
+            <tr>
+                <td colspan="2" style="text-align: right; padding-top: 10px;">
+                    <button type="submit">
+                        가입하기
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}
