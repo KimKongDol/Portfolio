@@ -19,13 +19,13 @@
 <!-- 유저 확인 후에 보여줄 예정 -->
 {% if user.is_authenticated %}
 
-  {% include './user_okay.html' %}
+{% include './user_okay.html' %}
 
 {% else %}
 
 {% include './user_unknown.html' %}
 
-  {% endif %}
+{% endif %}
 
 <script>
   $(document).on("change", ":file", function () {

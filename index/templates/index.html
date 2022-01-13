@@ -9,6 +9,7 @@
         <em>안녕, 나는 콩돌이야.<br />본명은 아니고 콩돌만큼 작아서 콩돌이야. 근데 내 본명에도 돌맹이가 있긴 해.</em>
       </p>
     </div>
+
     <div class="tm-page-col-right">
       <div class="tm-welcome-parallax" data-parallax="scroll" data-image-src="{%static 'img/stones.jpg' %}"></div>
     </div>
@@ -16,9 +17,31 @@
 </div>
 
 <section class="row tm-pt-4 tm-pb-6">
+
   <div class="col-12 tm-page-cols-container">
     <div class="tm-page-col-right">
-      <h2 class="tm-text-secondary tm-mb-5">
+      <!--  -->
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="false" aria-controls="collapseOne">
+              이 블로그의 목적이 뭔가요?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              저는 sns를 하기엔 멋이 부족하고 조용히 있기엔 쓰고 싶은 말이 많은 사람입니다.<br />
+
+              누군가 이 페이지를 보면서 이렇게 사는 사람도 있구나 하고 가끔씩 들여다봐주기를 바랍니다.
+              <img src="{%static 'img/kongdol.jpg' %}" id="index-me">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <h2 class="tm-text-secondary tm-mb-5 index-title">
         『윤희에게』&nbsp 中
       </h2>
       <div class="index-posters">

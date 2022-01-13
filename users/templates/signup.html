@@ -4,7 +4,7 @@
 {% block content %}
 <div>
     <p class="signup-title">저랑 친구해요<i class="fas fa-child"></i><br>별명을 제외한 모든 정보는 저와 가입자만 볼 수 있습니다.</p>
-    <form action="내용 전달할 곳" method="post">
+    <form action="{% url 'users:signup' %}" method="post">
         {% csrf_token %}
         <table align="center">
             <!-- <tr>
@@ -13,7 +13,7 @@
             <tr>
                 <!-- 첫번째 줄 시작 -->
                 <td>별명</td>
-                <td><input type="text" name="name"></td>
+                <td><input type="text" name="username"></td>
             </tr><!-- 첫번째 줄 끝 -->
             <tr>
                 <td colspan="2" class="explain">가능하면 제가 못알아보는 걸로 합시다!<br />그게 재밌자나용ㅎㅎ</td>
@@ -58,12 +58,17 @@
             </tr><!-- 첫번째 줄 끝 -->
             <tr>
                 <td>비밀번호</td>
-                <td><input type="password" name="name"></td>
+                <td><input type="password" name="password"></td>
             </tr><!-- 첫번째 줄 끝 -->
             <tr>
-                <td colspan="2" style="text-align: right; padding-top: 10px;">
-                    <button type="submit">
-                        가입하기
+                <td>비밀번호 재입력</td>
+                <td><input type="password" name="passwordvaild"></td>
+            </tr><!-- 첫번째 줄 끝 -->
+            <tr>
+                <td colspan="2" style="padding-top: 10px;">
+                    <button class="signup-btn" type="submit">
+                        <p>가입하기</p>
+                        <i class="far fa-handshake fa-2x"></i>
                     </button>
                 </td>
             </tr>

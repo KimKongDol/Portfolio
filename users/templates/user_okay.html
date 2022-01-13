@@ -4,11 +4,11 @@
         <div class="tm-page-col-left mypage_sidebar">
             <div class="tm-contact-container tm-mb-6">
                 <div class="tm-address-container">
-                    <h2 class="tm-text-secondary tm-mb-6 mypage_title">콩돌씨와의 관계<div class="trans_eng">Relationship</div>
+                    <h2 class="tm-text-secondary tm-mb-6 mypage_title">콩돌과의 관계<div class="trans_eng">Relationship</div>
                     </h2>
                     <address>
-                        <p>
-                            <strong>Mega</strong> Lover
+                        <p class="user-info">
+                            <strong>{{ user.relation }}</strong>
                         </p>
                     </address>
                 </div>
@@ -18,8 +18,8 @@
                             we meet first
                         </div>
                     </h2>
-                    <p>서울특별시<br />
-                        미술관에서 어맛하고 부딪혔는데 나였삼
+                    <p class="user-info">{{ user.home }}<br />
+                        {{ user.location }}
                     </p>
                 </div>
             </div>
@@ -30,9 +30,8 @@
                 <a href="{% url 'account_logout' %}" class="log_btn_text">로그아웃</a>
                 <div class="trans_eng">About You</div>
             </h2>
-            <div>
-                닉네임은 뭐뭐고<br />나이는 블라인드ㅎㅎ<br />닮은 꼴은 누구누구
-            </div>
+            <div class="user-info">
+                닉네임은 {{ user.nickname }}<br />나이는 블라인드ㅎㅎ<br />콩돌과 {{user.time}}부터 소통을 시작하는 중 </div>
         </div>
     </div>
 </section>

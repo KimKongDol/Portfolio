@@ -1,49 +1,12 @@
-@media (max-width:767px) {
-    .mypage_title {
-        font-size: 6vw;
-    }
-  
-    .mypage_title {
-     font-size: 5vw;
-     max-width: 50%;
-     margin: 3%; /* 블럭끼리 */
-     padding: 5%; /*블럭내부*/
-     font-family: 'Grandpa_sharing';
-     color: #8586AB;
-     text-align: center;
-    }
- 
-    .log_btn_text{
-     border: #8586AB dotted 3px;    
-     border-radius: 10px;
-     margin: 5px;
-     font-family: 'Grandpa_sharing' !important;
-     color: rgba(147, 148, 189, 1);
- }
- }
- 
- @media (min-width:1024px){
-     .mypage_title {
-         font-size: 6vw;
-     }
-   
-     .mypage_title {
-      font-size: 5vw;
-      max-width: 50%;
-      margin: 3%; /* 블럭끼리 */
-      padding: 5%; /*블럭내부*/
-      font-family: 'Grandpa_sharing';
-     color: #8586AB;
-     text-align: center;
-     }
-     .log_btn_text{
-         border: #8586AB dotted 3px;    
-         border-radius: 10px;
-         margin: 5px;
-         font-family: 'Grandpa_sharing' !important;
-         color: rgba(147, 148, 189, 1);
-     }
- }
+.log_btn_text{
+    border: #8586AB dotted 3px;    
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'Grandpa_sharing' !important;
+    color: rgba(147, 148, 189, 1);
+    width: 50%;
+    text-align: center;
+}
 
 .trans_eng{
     color: rgba(147, 148, 189, 0.6);
@@ -58,14 +21,14 @@
 }
 
 .mypage_title {
-    border: #8586AB dotted 3px;    
     border-radius: 10px;
-    font-family: 'Grandpa_sharing' !important;
+    font-family: 'Grandpa_sharing';
     color: rgba(147, 148, 189, 1);
     text-align: center;
 }
 
 .log_btns{
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -75,5 +38,43 @@
     flex-direction: column;
 }
 
+/* 회원가입 페이지 */
+.explain{
+    padding-bottom: 2vmin;
+    color: grey;
+}
 
+.signup-title{
+    text-align: center;
+    border-bottom: solid rgba(90, 89, 87, 0.507);
+    margin-bottom: 5vmin;
+    padding-bottom: 2vmin; /*선 위*/
+    font-family: 'Grandpa_sharing';
+    font-size: 3.5vmin;
+}
 
+.signup-btn{
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #9394BD;
+    border: 0;
+    outline: 0;
+    height: 4.0485vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-btn>p{
+    margin: 0;
+}
+
+.login-btn{
+    margin-top: 9px;
+}
+
+/* 상세페이지 */
+.user-info{
+    text-align: center !important;
+}

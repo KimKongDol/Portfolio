@@ -1,0 +1,27 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block content %}
+<div>
+    <p class="signup-title">오랜만입니다!</p>
+    <form action="/account/login/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% include './form_errors.html' %}
+        <table align="center">
+            <tr>
+                <td>별명</td>
+                <td><input type="text" name="login" placeholder="아이디" autocomplete="username" maxlength="150"
+                        required="" id="id_login"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="password" placeholder="비밀번호" autocomplete="current-password"
+                        required="" id="id_password"></td>
+            </tr>
+        </table>
+        <button class="signup-btn login-btn" type="submit">
+            <p>로그인</p>
+        </button>
+    </form>
+</div>
+{% endblock %}

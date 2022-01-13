@@ -22,6 +22,27 @@ https://templatemo.com/tm-532-next-level
     6 = 50
     7 = 55
 */
+/* 아코디언 css */
+
+#index-me{
+  width: 100%;
+  object-fit: contain;
+  border-radius: 7px;
+}
+.accordion{
+  margin-bottom: 10%;
+}
+
+.accordion-body{
+  font-family: 'Grandpa_sharing';
+  font-size: 2.5vmin;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black;
+  background-color: white;
+}
+
 
 /*	Overrides */
 @font-face {
@@ -104,7 +125,7 @@ ul {
 .tm-home-section-2-left { padding-right: 40px; }
 .tm-home-section-2-right { padding-left: 40px; }
 
-.tm-pt-4 { padding-top: 40px; }
+.tm-pt-4 { padding: 0;}
 .tm-pt-5 { padding-top: 45px; }
 .tm-pt-7 { padding-top: 55px; }
 .tm-pb-6 { padding-bottom: 50px; }
@@ -292,11 +313,11 @@ ul.tm-list-plus li:before {
 
 .tm-welcome-text {
   font-family: 'Grandpa_sharing';
-  max-width: 320px;
+  max-width: 80%;
   width: 100%;
-  padding: 15px 25px 15px 15px;
+  padding: 1.2vmin 1.102vmax 1.2vmin 0.661vmax;
   color: white;
-  font-size: 38px;
+  font-size: 2.56vmin;
   margin-bottom: 0;
   text-align: center;
 }
@@ -309,6 +330,21 @@ ul.tm-list-plus li:before {
   }
 
   .tm-page-cols-container { flex-direction: column; }
+
+  .tm-welcome-text {font-size: 6vw;}
+
+  .mb-0 {font-size: 8vw; }
+
+  .index-title{
+    font-size:6vw;
+  }
+
+  .accordion-body{
+    font-size:4vw;
+  }
+
+  .tm-bg-primary{
+  }
 }
 
 /* Call to Action */
@@ -618,8 +654,6 @@ figure.effect-bubba:hover p {
 
 .tm-contact-container {
 	max-width: 375px;
-	padding-left: 60px;
-	padding-right: 15px;
 }
 
 .tm-address-container {	margin-bottom: 95px; }
