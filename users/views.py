@@ -3,8 +3,10 @@ from django.views.generic import CreateView
 from users.models import User
 from django.contrib import auth, messages
 from .forms import SignupForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
 from django.contrib.auth.hashers import make_password, check_password
+from .models import User
 # Create your views here.
 
 
@@ -14,14 +16,14 @@ def mypage(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = SignupForm(request.POST)
+        form = SignupForm(request.POST, request.FILES)
         if form.is_valid():
-            user = form.save()
-            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            # return redirect('/mypage')  # 로그인 성공시 마이페이지로 이동
-            messages.success(request, "회원가입을 환영합니다.")
-        return redirect('/mypage')  # 로그인 성공시 페이지 이동
-
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)  # 사용자인증
+            auth_login(request, user)
+            return redirect('/mypage')
     else:
         form = SignupForm()
     return render(request, 'signup2.html', {'form': form})
@@ -42,11 +44,10 @@ def login(request):
         else:
             user = User.objects.get(username=username)
 
-            if check_password(password, member.password):
+            if check_password(password, user.password):
                 pass
                 # session!
                 # redirect!
-
             else:
                 res_data['error'] = '비밀번호가 다릅니다!'
 

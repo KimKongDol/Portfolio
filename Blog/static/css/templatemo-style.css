@@ -653,7 +653,7 @@ figure.effect-bubba:hover p {
 /* Contact */
 
 .tm-contact-container {
-	max-width: 375px;
+	/* max-width: 375px; */
 }
 
 .tm-address-container {	margin-bottom: 95px; }

@@ -9,11 +9,3 @@ class SignupForm(UserCreationForm):
         model = User
         fields = ['username', 'relation', 'home',
                   'how', 'email', 'password1', 'password2']
-
-    def clean(self):
-        username = self.cleaned_data.get('username')
-        if username:
-            qs = User.objects.filter(username=username)
-            if qs.exists():
-                raise forms.ValidationError("이미 존재하는 별명입니다.")
-        return username

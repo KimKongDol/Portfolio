@@ -36,7 +36,16 @@
     <script src="{%static 'js/jquery.min.js' %}"></script>
     <script src="{%static 'js/parallax.min.js' %}"></script>
     <script src="{%static 'js/boot.js' %}"></script>
+    <script>
+        window.onload = function () {
+            var textarea = document.getElementsByTagName("textarea");
 
+            textarea[0].addEventListener("click", function () {
+                textarea.value = '';
+            })
+
+        }
+    </script>
     <div class="container-fluid">
         <div class="row tm-brand-row">
             <div class="col-lg-4 col-10">
@@ -95,8 +104,12 @@
 </body>
 
 <script>
-    function timeout() {
-        setTimeout(1000);
+    window.onload = function () {
+        var textarea = document.getElementsByTagName("textarea");
+        textarea[0].addEventListener("click", function () {
+            textarea[0].value = '';
+        })
+
     }
 </script>
 

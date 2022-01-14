@@ -78,3 +78,42 @@
 .user-info{
     text-align: center !important;
 }
+
+.user-img>img{
+    width: 20vmin;
+    height: 20vmin;
+    object-fit: contain;
+    margin-bottom: 5vmin;
+}
+
+.logoutpart{
+    margin-top: 4vmin;
+    border: #8586AB dotted 3px;    
+    border-radius: 10px;
+    font-family: 'Grandpa_sharing' !important;
+    color: rgba(147, 148, 189, 1);
+    width: 100%;
+    text-align: center;
+}
+
+#kongdolsays{
+    font-family:'Grandpa_sharing';
+    font-size: 2.5vmin;
+    color:rgb(15, 145, 15);
+}
+
+#yellow{
+    color:#FEE440;
+}
+
+#red{
+    color: red;
+}
+
+#blue{
+    color: #78baf8
+}
+
+#orange{
+    color: rgb(252, 94, 36)
+}

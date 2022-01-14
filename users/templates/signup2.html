@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block content %}
+
+
 <div>
     <p class="signup-title">저랑 친구해요<i class="fas fa-child"></i><br>별명을 제외한 모든 정보는 저와 가입자만 볼 수 있습니다.</p>
     <form action="{% url 'users:signup' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {% include './form_errors.html' %}
         <table align="center">
             {{ form }}
         </table>
@@ -17,3 +18,14 @@
     </form>
 </div>
 {% endblock %}
+
+<script>
+    window.onload = function () {
+        var textarea = document.getElementsByTagName("textarea");
+
+        textarea.addEventListener("click", function () {
+            textarea.value = '';
+        })
+
+    }
+</script>

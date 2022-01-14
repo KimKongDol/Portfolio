@@ -18,8 +18,7 @@
                             we meet first
                         </div>
                     </h2>
-                    <p class="user-info">{{ user.home }}<br />
-                        {{ user.location }}
+                    <p class="user-info">{{ user.home }}
                     </p>
                 </div>
             </div>
@@ -27,11 +26,37 @@
         <div class="tm-page-col-right tm-form-container">
             <h2 class="tm-text-secondary mb-4 mypage_title">
                 너의 정보
-                <a href="{% url 'account_logout' %}" class="log_btn_text">로그아웃</a>
+
                 <div class="trans_eng">About You</div>
             </h2>
             <div class="user-info">
-                닉네임은 {{ user.nickname }}<br />나이는 블라인드ㅎㅎ<br />콩돌과 {{user.time}}부터 소통을 시작하는 중 </div>
+                <div class="user-img">
+                    {% if user.image %}
+                    <img src="{{ user.image.url }}" alt="프로필사진" />
+                    {% else %}
+                    <img src="{%static 'img/user.jpg'%}" alt="프로필사진" />
+                    {% endif %}
+                </div>
+                <strong>{{ user.home }}</strong>에서 주로 활동하는 <strong>{{ user.username }}님</strong><br />나이는
+                블라인드ㅎㅎ<br />콩돌과 {{user.time}}부터
+                소통을 시작하는 중<br /><br />
+                <p id="kongdolsays">
+                    <span id="orange">
+                        <i class="far fa-grin-beam-sweat"></i>
+                        콩돌
+                    </span>
+                    : 아직 빈 곳이 많아서 이게 무슨 쓸모가 있나싶죠...제가 얼른 업데이트해서 <span id="yellow">Fun</span>한 것들을 만들어올게요! 조금만
+                    기다려주세요! <span id="red">♥</span> 이 글을 보시는 <span id="blue">{{ user.username }}님</span> 오늘 하루종일
+                    행복하시길 <span id="red">♥</span>
+                </p>
+
+            </div>
+            <a href="{% url 'account_logout' %}">
+                <div class="logoutpart">
+                    로그아웃
+                </div>
+            </a>
         </div>
+
     </div>
 </section>
