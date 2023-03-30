@@ -1,0 +1,44 @@
+#gallery_title{
+    font-family: 'Grandpa_sharing';
+    font-size: 50px;
+}
+
+.gallery_body{
+    margin: 20px 10vw;
+    
+}
+
+#gallery_body_title{
+    font-family: 'Grandpa_sharing';
+    font-size: 35px;
+    display : flex;
+	justify-content : center;
+    margin-bottom: 6vh;
+}
+
+.result_box{
+    margin-top: 3vh;
+    padding: 0 10% 3%; /* 위 좌우 아래 */
+    border: 5px solid rgba(170, 169, 169, 0.568);
+    border-radius: 10px;
+}
+
+#string_btn{
+    border-radius: 10px 0 0 10px !important;
+}
+
+#round_btn{
+    border-radius: 10px;
+}
+
+.thin_btn{
+    padding: 5px 25px !important;
+}
+
+.explaination_box{
+    margin-bottom: 40px;
+}
+
+.explaination{
+    margin-bottom: 15px;
+}

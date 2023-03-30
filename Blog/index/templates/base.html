@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>콩돌씨의 라이푸</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{%static 'css/gallery.css' %}" />
+    <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Open+Sans:400,600 " />
+    <link rel="stylesheet" href="{%static 'css/all.min.css' %}" />
+    <link rel="stylesheet" href="{%static 'css/boot1.css' %}" />
+    <link rel="stylesheet" href="{%static 'css/templatemo-style.css' %}" />
+    <link rel="stylesheet" href="{%static 'css/music.css' %}" />
+    <link rel="stylesheet" href="{%static 'css/error_report.css' %}" />
+    <link rel="stylesheet" href="{%static 'css/mypage.css' %}" />
+    <link rel="icon" href="{%static 'img/kongdolicon.png' %}" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/c9da775478.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" id="msg">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %} -->
+
+    <script src="{%static 'js/jquery.min.js' %}"></script>
+    <script src="{%static 'js/parallax.min.js' %}"></script>
+    <script src="{%static 'js/boot.js' %}"></script>
+    <script>
+        window.onload = function () {
+            var textarea = document.getElementsByTagName("textarea");
+
+            textarea[0].addEventListener("click", function () {
+                textarea.value = '';
+            })
+
+        }
+    </script>
+    <div class="container-fluid">
+        <div class="row tm-brand-row">
+            <div class="col-lg-4 col-10">
+                <div class="tm-brand-container">
+                    <div class="tm-brand-texts">
+                        <a href="{% url 'index:index' %}">
+                            <h1 class="text-uppercase tm-brand-name">Kim-KongDol</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-2 tm-nav-col">
+                <div class="tm-nav">
+                    <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ml-auto mr-0">
+                                <!-- <div class="tm-nav-link-highlight"></div>
+                                <a class="nav-link" href="{% url 'index:index' %}">Home <span
+                                        class="sr-only">(current)</span></a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <div class="tm-nav-link-highlight"></div>
+                                    <a class="nav-link" href="{% url 'music:music_index'%}">LYRICS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="tm-nav-link-highlight"></div>
+                                    <a class="nav-link" href="{% url 'error:error_index'%}">ERRORS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="tm-nav-link-highlight"></div>
+                                    <a class="nav-link" href="{% url 'gallery:gallery_index' %}">Gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="tm-nav-link-highlight"></div>
+                                    <a class="nav-link" href="{% url 'users:mypage' %}">MyPage</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+        <footer class="row tm-page-footer">
+            <p class="col-12 tm-copyright-text mb-0">
+                Copyright &copy; 2019 Next Level Company... Designed by
+                <a href="https://fb.com/templatemo" rel="nofollow" class="tm-copyright-link">Template Mo</a>
+            </p>
+        </footer>
+    </div>
+</body>
+
+<script>
+    window.onload = function () {
+        var textarea = document.getElementsByTagName("textarea");
+        textarea[0].addEventListener("click", function () {
+            textarea[0].value = '';
+        })
+
+    }
+</script>
+
+</html>

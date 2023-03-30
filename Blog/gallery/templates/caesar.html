@@ -1,0 +1,70 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+<script src="{%static 'js/imagesloaded.pkgd.min.js' %}">
+</script>
+<script src="{%static 'js/isotope.pkgd.min.js' %}"></script>
+<div class="row tm-welcome-row">
+  <div class="col-12">
+    <div class="tm-welcome-parallax tm-center-child" data-parallax="scroll" data-image-src="{%static 'img/caesar.jpg' %}">
+      <div class="tm-bg-black-transparent tm-parallax-overlay">
+        <h2 id="gallery_title">카이사르 암호</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gallery_body">
+    <div class="explaination_box">
+        <div class="explaination">
+            -시저 암호는 카이사르 암호라고도 불리며, 로마시대의 정치가이자 장군이었던 줄리어스
+            시저(Julius Caesar)가 처음 사용한 것으로 알려져있는 간단한 치환암호의 일종이다.
+        </div>
+        <div class="explaination">
+            - 줄리어스 시저는 각 알파벳 순으로 3칸 뒤로 물려 읽는 방법으로 암호문을 작성하였다. 
+        </div>
+        <div class="explaination">
+            -유명한 일화로, 시저는 양아들처럼 생각하던 브루투스에게 암살 당했으며, 그 직전에 전
+            달받은 암호화된 편지는 다음과 같다.<br/>
+            • 암호문: "RUSQHUVKBVEHQIIQIYDQJEH“ <br/>
+            • 복호화된 평문: "BECAREFULFORASSASINATOR"<br/>
+        </div>
+
+
+    </div>
+    <div id="gallery_body_title">원하는 문장을 입력하거나 임의 생성하세요.</div>
+
+    <div class="row">
+        <div class="input-group mb-3">
+            <button id="string_btn" class="btn btn-primary btn-round" type="button" id="button-addon1">입력</button>
+            <input id="string_input" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        </div>
+    </div>
+    <h2 id="gallery_title">or</h2>
+    <div>
+        <button id="round_btn" type="button" class="btn btn-success">자동생성</button>
+    </div>
+
+    <div class="result_box">
+        <h2 id="gallery_body_title">result</h2>
+        <h3>카이사르 암호문:</h3>
+        <p style="display: flex; flex-direction: row-reverse;">
+            <button style="color:white; width: 100%;" id="round_btn" class="btn btn-warning thin_btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              해독하기
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <p>
+                    시프트 횟수:
+                </p>
+                <p>
+                    원문:
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
