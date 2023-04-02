@@ -34,20 +34,26 @@
     </div>
     <div id="gallery_body_title">원하는 문장을 입력하거나 임의 생성하세요.</div>
 
-    <div class="row">
-        <div class="input-group mb-3">
-            <button id="string_btn" class="btn btn-primary btn-round" type="button" id="button-addon1">입력</button>
-            <input id="string_input" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+    <div class="input_string_box">
+        <div class="row">
+            <div class="input-group mb-3">
+                <button id="string_btn" class="btn btn-primary btn-round ajax_string_input_btn" type="button">입력</button>
+                <input id="string_input" name="sentence" type="text" class="form-control ajax_string_input" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            </div>
         </div>
     </div>
+    
     <h2 id="gallery_title">or</h2>
     <div>
-        <button id="round_btn" type="button" class="btn btn-success">자동생성</button>
+        <button type="submit" id="round_btn" class="btn btn-success ajax_string_rand_btn" >자동생성</button>
     </div>
 
+    <p class="original_sentence">입력한 혹은 생성한 문장: {{sentence}}</p>
+
     <div class="result_box">
-        <h2 id="gallery_body_title">result</h2>
-        <h3>카이사르 암호문:</h3>
+        <h2 id="gallery_body_title">result(암호문)</h2>
+        <h3 class="cearsar_sentence"></h3>
+        
         <p style="display: flex; flex-direction: row-reverse;">
             <button style="color:white; width: 100%;" id="round_btn" class="btn btn-warning thin_btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               해독하기
@@ -55,16 +61,70 @@
         </p>
         <div class="collapse" id="collapseExample">
             <div class="card card-body">
-                <p>
+                <p class="shift_num">
                     시프트 횟수:
                 </p>
-                <p>
-                    원문:
+                <p class="final_sentence">
+                    해독문:
                 </p>
             </div>
         </div>
     </div>
 </div>
 
+<script>
+    // 문자열을 입력 받는 곳의 ajax
+    let ajax_string_input_btn = document.querySelector('.ajax_string_input_btn');
+    ajax_string_input_btn.addEventListener('click', e => {
+        let ajax_string_input = document.querySelector('.ajax_string_input').value;
+        let param = {
+        'ajax_string_input': ajax_string_input,
+        }
+       
+        $.ajax({
+            url : "{% url 'gallery:input_string' %}",
+            type : 'POST',
+            data : JSON.stringify(param),
+            headers: {
+            'X-CSRFTOKEN' : '{{ csrf_token }}'
+            },
+            success: function(data){
+                console.log(data)
+                console.log('값:'+data['cearsar_sentence'])
+                // $('.original_sentence').text(data['ajax_string_input'])
+                $('.cearsar_sentence').text(data['cearsar_sentence'])
+                $('.shift_num').text(`시프트 횟수: ${data['shift_num']}`)
+                $('.final_sentence').text(`해독문: ${data['ajax_string_input']}`)
+            },
+            error: function(){
+                alert('안돼 돌아가');
+            }
+        })
+    });
 
+    // 문자열을 랜덤으로 다루는 곳의
+    let ajax_string_rand_btn = document.querySelector('.ajax_string_rand_btn');
+    ajax_string_rand_btn.addEventListener('click', e => {       
+        $.ajax({
+            url : "{% url 'gallery:random_string' %}",
+            type : 'GET',
+            dataType: "json",
+            headers: {
+            'X-CSRFTOKEN' : '{{ csrf_token }}'
+            },
+            success: function(data){
+                // $('.original_sentence').text(data['rand_string'])
+                $('.cearsar_sentence').text(data['cearsar_sentence'])
+                $('.shift_num').text(`시프트 횟수: ${data['shift_num']}`)
+                $('.final_sentence').text(`해독문: ${data['rand_string']}`)
+                console.log(data["rand_string"])
+                console.log(JSON.stringify(data))
+            },
+            error: function(){
+                alert('안돼 돌아가');
+            },
+        })
+    });
+
+</script>
 {% endblock %}

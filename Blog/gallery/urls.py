@@ -7,4 +7,9 @@ urlpatterns = [
     path('gallery_index/', gallery_index, name='gallery_index'),
     path('gallery_index/christmas', christmas, name='christmas'),
     path('gallery_index/caesar', caesar, name='caesar'),
+
+    path('input_string/', input_string, name="input_string"),
+    path('random_string/', random_string ,name="random_string"),
+    path('test', test ,name="test"),
+    # path('caesar_encryp/', caesar_encryp,name="caesar_encryp"),
 ]
