@@ -4,7 +4,7 @@ import json
 import random
 from nltk.corpus import words #영어단어가 맞는지 확인하는 모듈
 from nltk.tokenize import word_tokenize #문장을 토큰으로 쪼개기 위한 모듈
-# Create your views here.
+from nltk.stem import WordNetLemmatizer #복수명사를 단수로 바꿔주기 위한 모듈
 
 #########################################
 def gallery_index(request):
@@ -69,12 +69,20 @@ def AA():
         print("shiftttt::::::::::",caesar_decryp(shift))
         decryp_sentence_token = word_tokenize(caesar_decryp(shift))
         for token in decryp_sentence_token:
-            if(token in words.words()):#사전에 있는 영어가 맞을 때
-                cnt += 1
-                print("맞음")
-                print(cnt,"and",len(decryp_sentence_token))
-            else:#영어가 아닐 때
-                break
+            #동사를 동사원형으로
+            token = WordNetLemmatizer().lemmatize(token.lower(),pos='v')
+            #동사를 단수형
+            token = WordNetLemmatizer().lemmatize(token, pos='n')
+            #토큰이 알파벳이면서 사전에 있는 영어가 맞을 때
+            if(token.isalpha() and token in words.words()):
+                cnt+=1
+            #토큰이 그 외 문자일 땐 패스
+            elif(not token.isalpha()):
+                cnt+=1
+            #토큰이 알파벳이면서 사전에 없으면 break
+            else:
+                break;
+        
         if (cnt == len(decryp_sentence_token)):
             print(f"{shift}번 시프트했네요.")
             shift_num = shift
